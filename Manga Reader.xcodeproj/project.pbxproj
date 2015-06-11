@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0CC15E1B203BA000A267E8 /* ChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0CC15D1B203BA000A267E8 /* ChapterViewController.swift */; };
+		2B0CC1601B203BB400A267E8 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0CC15F1B203BB400A267E8 /* ContentViewController.swift */; };
 		2BD5D0321B1F939B00D01E38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD5D0311B1F939B00D01E38 /* AppDelegate.swift */; };
 		2BD5D0341B1F939B00D01E38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD5D0331B1F939B00D01E38 /* ViewController.swift */; };
 		2BD5D0371B1F939B00D01E38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD5D0351B1F939B00D01E38 /* Main.storyboard */; };
 		2BD5D0391B1F939B00D01E38 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BD5D0381B1F939B00D01E38 /* Images.xcassets */; };
 		2BD5D03C1B1F939B00D01E38 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BD5D03A1B1F939B00D01E38 /* LaunchScreen.xib */; };
 		2BD5D0481B1F939B00D01E38 /* Manga_ReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD5D0471B1F939B00D01E38 /* Manga_ReaderTests.swift */; };
+		2BD5D0521B1F960D00D01E38 /* SerieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD5D0511B1F960D00D01E38 /* SerieViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B0CC15D1B203BA000A267E8 /* ChapterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterViewController.swift; sourceTree = "<group>"; };
+		2B0CC15F1B203BB400A267E8 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		2BD5D02C1B1F939B00D01E38 /* Manga Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Manga Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD5D0301B1F939B00D01E38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BD5D0311B1F939B00D01E38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +41,7 @@
 		2BD5D0411B1F939B00D01E38 /* Manga ReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Manga ReaderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD5D0461B1F939B00D01E38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BD5D0471B1F939B00D01E38 /* Manga_ReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manga_ReaderTests.swift; sourceTree = "<group>"; };
+		2BD5D0511B1F960D00D01E38 /* SerieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerieViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,9 @@
 			children = (
 				2BD5D0311B1F939B00D01E38 /* AppDelegate.swift */,
 				2BD5D0331B1F939B00D01E38 /* ViewController.swift */,
+				2BD5D0511B1F960D00D01E38 /* SerieViewController.swift */,
+				2B0CC15D1B203BA000A267E8 /* ChapterViewController.swift */,
+				2B0CC15F1B203BB400A267E8 /* ContentViewController.swift */,
 				2BD5D0351B1F939B00D01E38 /* Main.storyboard */,
 				2BD5D0381B1F939B00D01E38 /* Images.xcassets */,
 				2BD5D03A1B1F939B00D01E38 /* LaunchScreen.xib */,
@@ -212,8 +221,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B0CC1601B203BB400A267E8 /* ContentViewController.swift in Sources */,
+				2B0CC15E1B203BA000A267E8 /* ChapterViewController.swift in Sources */,
 				2BD5D0341B1F939B00D01E38 /* ViewController.swift in Sources */,
 				2BD5D0321B1F939B00D01E38 /* AppDelegate.swift in Sources */,
+				2BD5D0521B1F960D00D01E38 /* SerieViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,8 +355,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Manga Reader/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -353,8 +367,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Manga Reader/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
@@ -411,6 +427,7 @@
 				2BD5D04D1B1F939B00D01E38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2BD5D04E1B1F939B00D01E38 /* Build configuration list for PBXNativeTarget "Manga ReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +436,7 @@
 				2BD5D0501B1F939B00D01E38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
