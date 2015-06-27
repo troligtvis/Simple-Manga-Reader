@@ -12,7 +12,6 @@ class SerieViewController: UIViewController {
 
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var theTable: UITableView!
-    
     @IBOutlet weak var imgView: UIImageView!
     
     var chapters = [[String]]()
@@ -25,8 +24,10 @@ class SerieViewController: UIViewController {
         case Bleach = 0
         case OnePiece
         case FairyTail
+        case FairyTailZero
         case NarutoGaiden
         case AttackOnTitan
+        case AssassinationClassroom
         
         func name() -> String{
             switch self{
@@ -36,10 +37,14 @@ class SerieViewController: UIViewController {
                 return "One Piece"
             case .FairyTail:
                 return "Fairy Tail"
+            case .FairyTailZero:
+                return "Fairy Tail Zero"
             case .NarutoGaiden:
                 return "Naruto Gaiden"
             case .AttackOnTitan:
                 return "Attack On Titan"
+            case .AssassinationClassroom:
+                return "Assassination Classroom"
             }
         }
         
@@ -51,10 +56,14 @@ class SerieViewController: UIViewController {
                 return "http://www.mangareader.net/103/one-piece.html"
             case .FairyTail:
                 return "http://www.mangareader.net/135/fairy-tail.html"
+            case .FairyTailZero:
+                return "http://www.mangareader.net/fairy-tail-zero"
             case .NarutoGaiden:
                 return "http://www.mangareader.net/naruto-gaiden-the-seventh-hokage"
             case .AttackOnTitan:
                 return "http://www.mangareader.net/shingeki-no-kyojin"
+            case .AssassinationClassroom:
+                return "http://www.mangareader.net/assassination-classroom"
             }
         }
         
@@ -66,10 +75,14 @@ class SerieViewController: UIViewController {
                 return UIImage(named: "logo_onepiece")!
             case .FairyTail:
                 return UIImage(named: "logo_fairytail")!
+            case .FairyTailZero:
+                return UIImage(named: "logo_fairytail_zero")!
             case .NarutoGaiden:
                 return UIImage(named: "logo_naruto")!
             case .AttackOnTitan:
                 return UIImage(named: "logo_attackontitan")!
+            case .AssassinationClassroom:
+                return UIImage(named: "logo_assassination_classroom")!
             }
         }
     }

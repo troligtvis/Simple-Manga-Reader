@@ -37,9 +37,9 @@ extension UIImageView {
             NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
                 (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
                 if error != nil{
-                    println("error?")
+                    println("error")
                 }
-                println("no error")
+
                 self.image = UIImage(data: data)
             }
         }

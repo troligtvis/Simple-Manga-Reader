@@ -18,15 +18,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+
         theTable.delegate = self
         theTable.dataSource = self
         
         mangaList = ["Bleach",
                      "One Piece",
                      "Fairy Tail",
+                     "Fairy Tail Zero",
                      "Naruto Gaiden",
-                     "Attack On Titan"]
+                     "Attack On Titan",
+                     "Assassination Classroom"]
     }
 
     override func didReceiveMemoryWarning() {

@@ -44,8 +44,8 @@ class ChapterViewController: UIViewController {
                             var im2 = im[0].componentsSeparatedByString("src=\"")
                             var firstImageUrl: String = "\(im2[1]).jpg"
                             var strForSorting = firstImageUrl as NSString
-
-                            self.pages["\(strForSorting.substringFromIndex(27))"] = firstImageUrl
+                            var im3 = im2[1].componentsSeparatedByString("/")
+                            self.pages["\(im3[5])"] = firstImageUrl
                             self.pageIndex++
                         }
                         
