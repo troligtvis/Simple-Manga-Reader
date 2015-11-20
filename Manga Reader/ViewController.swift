@@ -40,14 +40,6 @@ class ViewController: UIViewController {
 
     @IBAction func unwindToStart(segue: UIStoryboardSegue) {
     }
-
-    
-
-    @IBAction func toggleMenu(sender: AnyObject) {
-
-        self.frostedViewController.presentMenuViewController()
-    }
-    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{

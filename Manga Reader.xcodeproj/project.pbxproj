@@ -7,18 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B0393E21B4C4B7D00C0DE05 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0393D71B4C4B7D00C0DE05 /* RECommonFunctions.m */; };
-		2B0393E31B4C4B7D00C0DE05 /* REFrostedContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0393D91B4C4B7D00C0DE05 /* REFrostedContainerViewController.m */; };
-		2B0393E41B4C4B7D00C0DE05 /* REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0393DB1B4C4B7D00C0DE05 /* REFrostedViewController.m */; };
-		2B0393E51B4C4B7D00C0DE05 /* UIImage+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0393DD1B4C4B7D00C0DE05 /* UIImage+REFrostedViewController.m */; };
-		2B0393E61B4C4B7D00C0DE05 /* UIView+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0393DF1B4C4B7D00C0DE05 /* UIView+REFrostedViewController.m */; };
-		2B0393E71B4C4B7D00C0DE05 /* UIViewController+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0393E11B4C4B7D00C0DE05 /* UIViewController+REFrostedViewController.m */; };
 		2B0393EA1B4C4C7100C0DE05 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0393E91B4C4C7100C0DE05 /* Accelerate.framework */; };
-		2B0393EC1B4C4E6800C0DE05 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0393EB1B4C4E6800C0DE05 /* Menu.swift */; };
-		2B0393EE1B4C4EFE00C0DE05 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0393ED1B4C4EFE00C0DE05 /* Container.swift */; };
-		2B0393F01B4C655F00C0DE05 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0393EF1B4C655F00C0DE05 /* FirstViewController.swift */; };
-		2B0393F21B4C656600C0DE05 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0393F11B4C656600C0DE05 /* MainViewController.swift */; };
-		2B0393F41B4C656C00C0DE05 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0393F31B4C656C00C0DE05 /* SecondViewController.swift */; };
 		2B0CC15E1B203BA000A267E8 /* ChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0CC15D1B203BA000A267E8 /* ChapterViewController.swift */; };
 		2B0CC1601B203BB400A267E8 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0CC15F1B203BB400A267E8 /* ContentViewController.swift */; };
 		2BD5D0321B1F939B00D01E38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD5D0311B1F939B00D01E38 /* AppDelegate.swift */; };
@@ -29,7 +18,6 @@
 		2BD5D0481B1F939B00D01E38 /* Manga_ReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD5D0471B1F939B00D01E38 /* Manga_ReaderTests.swift */; };
 		2BD5D0521B1F960D00D01E38 /* SerieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD5D0511B1F960D00D01E38 /* SerieViewController.swift */; };
 		2BDF74DF1B4A74B600FA7644 /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDF74DE1B4A74B600FA7644 /* SlideMenuController.swift */; };
-		2BDF74E11B4A756C00FA7644 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDF74E01B4A756C00FA7644 /* MenuTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,25 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2B0393D61B4C4B7D00C0DE05 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
-		2B0393D71B4C4B7D00C0DE05 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
-		2B0393D81B4C4B7D00C0DE05 /* REFrostedContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedContainerViewController.h; sourceTree = "<group>"; };
-		2B0393D91B4C4B7D00C0DE05 /* REFrostedContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedContainerViewController.m; sourceTree = "<group>"; };
-		2B0393DA1B4C4B7D00C0DE05 /* REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedViewController.h; sourceTree = "<group>"; };
-		2B0393DB1B4C4B7D00C0DE05 /* REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedViewController.m; sourceTree = "<group>"; };
-		2B0393DC1B4C4B7D00C0DE05 /* UIImage+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+REFrostedViewController.h"; sourceTree = "<group>"; };
-		2B0393DD1B4C4B7D00C0DE05 /* UIImage+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+REFrostedViewController.m"; sourceTree = "<group>"; };
-		2B0393DE1B4C4B7D00C0DE05 /* UIView+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+REFrostedViewController.h"; sourceTree = "<group>"; };
-		2B0393DF1B4C4B7D00C0DE05 /* UIView+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+REFrostedViewController.m"; sourceTree = "<group>"; };
-		2B0393E01B4C4B7D00C0DE05 /* UIViewController+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+REFrostedViewController.h"; sourceTree = "<group>"; };
-		2B0393E11B4C4B7D00C0DE05 /* UIViewController+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+REFrostedViewController.m"; sourceTree = "<group>"; };
-		2B0393E81B4C4B8C00C0DE05 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		2B0393E91B4C4C7100C0DE05 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		2B0393EB1B4C4E6800C0DE05 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
-		2B0393ED1B4C4EFE00C0DE05 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
-		2B0393EF1B4C655F00C0DE05 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		2B0393F11B4C656600C0DE05 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		2B0393F31B4C656C00C0DE05 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		2B0CC15D1B203BA000A267E8 /* ChapterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterViewController.swift; sourceTree = "<group>"; };
 		2B0CC15F1B203BB400A267E8 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		2BD5D02C1B1F939B00D01E38 /* Manga Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Manga Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,7 +46,6 @@
 		2BD5D0471B1F939B00D01E38 /* Manga_ReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manga_ReaderTests.swift; sourceTree = "<group>"; };
 		2BD5D0511B1F960D00D01E38 /* SerieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerieViewController.swift; sourceTree = "<group>"; };
 		2BDF74DE1B4A74B600FA7644 /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuController.swift; sourceTree = "<group>"; };
-		2BDF74E01B4A756C00FA7644 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,25 +67,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2B0393D51B4C4B7D00C0DE05 /* REFrostedViewController */ = {
-			isa = PBXGroup;
-			children = (
-				2B0393D61B4C4B7D00C0DE05 /* RECommonFunctions.h */,
-				2B0393D71B4C4B7D00C0DE05 /* RECommonFunctions.m */,
-				2B0393D81B4C4B7D00C0DE05 /* REFrostedContainerViewController.h */,
-				2B0393D91B4C4B7D00C0DE05 /* REFrostedContainerViewController.m */,
-				2B0393DA1B4C4B7D00C0DE05 /* REFrostedViewController.h */,
-				2B0393DB1B4C4B7D00C0DE05 /* REFrostedViewController.m */,
-				2B0393DC1B4C4B7D00C0DE05 /* UIImage+REFrostedViewController.h */,
-				2B0393DD1B4C4B7D00C0DE05 /* UIImage+REFrostedViewController.m */,
-				2B0393DE1B4C4B7D00C0DE05 /* UIView+REFrostedViewController.h */,
-				2B0393DF1B4C4B7D00C0DE05 /* UIView+REFrostedViewController.m */,
-				2B0393E01B4C4B7D00C0DE05 /* UIViewController+REFrostedViewController.h */,
-				2B0393E11B4C4B7D00C0DE05 /* UIViewController+REFrostedViewController.m */,
-			);
-			path = REFrostedViewController;
-			sourceTree = "<group>";
-		};
 		2BD5D0231B1F939B00D01E38 = {
 			isa = PBXGroup;
 			children = (
@@ -146,16 +96,8 @@
 				2B0CC15D1B203BA000A267E8 /* ChapterViewController.swift */,
 				2B0CC15F1B203BB400A267E8 /* ContentViewController.swift */,
 				2BD5D0351B1F939B00D01E38 /* Main.storyboard */,
-				2BDF74E01B4A756C00FA7644 /* MenuTableViewController.swift */,
-				2B0393EB1B4C4E6800C0DE05 /* Menu.swift */,
-				2B0393ED1B4C4EFE00C0DE05 /* Container.swift */,
-				2B0393EF1B4C655F00C0DE05 /* FirstViewController.swift */,
-				2B0393F11B4C656600C0DE05 /* MainViewController.swift */,
-				2B0393F31B4C656C00C0DE05 /* SecondViewController.swift */,
 				2BD5D0381B1F939B00D01E38 /* Images.xcassets */,
 				2BD5D03A1B1F939B00D01E38 /* LaunchScreen.xib */,
-				2B0393E81B4C4B8C00C0DE05 /* Header.h */,
-				2B0393D51B4C4B7D00C0DE05 /* REFrostedViewController */,
 				2BD5D02F1B1F939B00D01E38 /* Supporting Files */,
 			);
 			path = "Manga Reader";
@@ -232,7 +174,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = kj;
 				TargetAttributes = {
 					2BD5D02B1B1F939B00D01E38 = {
@@ -289,23 +231,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B0CC1601B203BB400A267E8 /* ContentViewController.swift in Sources */,
-				2B0393E31B4C4B7D00C0DE05 /* REFrostedContainerViewController.m in Sources */,
-				2B0393EC1B4C4E6800C0DE05 /* Menu.swift in Sources */,
-				2BDF74E11B4A756C00FA7644 /* MenuTableViewController.swift in Sources */,
 				2B0CC15E1B203BA000A267E8 /* ChapterViewController.swift in Sources */,
 				2BD5D0341B1F939B00D01E38 /* ViewController.swift in Sources */,
-				2B0393E71B4C4B7D00C0DE05 /* UIViewController+REFrostedViewController.m in Sources */,
-				2B0393F21B4C656600C0DE05 /* MainViewController.swift in Sources */,
-				2B0393EE1B4C4EFE00C0DE05 /* Container.swift in Sources */,
-				2B0393E51B4C4B7D00C0DE05 /* UIImage+REFrostedViewController.m in Sources */,
 				2BD5D0321B1F939B00D01E38 /* AppDelegate.swift in Sources */,
 				2BDF74DF1B4A74B600FA7644 /* SlideMenuController.swift in Sources */,
-				2B0393F41B4C656C00C0DE05 /* SecondViewController.swift in Sources */,
-				2B0393F01B4C655F00C0DE05 /* FirstViewController.swift in Sources */,
-				2B0393E61B4C4B7D00C0DE05 /* UIView+REFrostedViewController.m in Sources */,
 				2BD5D0521B1F960D00D01E38 /* SerieViewController.swift in Sources */,
-				2B0393E21B4C4B7D00C0DE05 /* RECommonFunctions.m in Sources */,
-				2B0393E41B4C4B7D00C0DE05 /* REFrostedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +298,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -437,8 +368,10 @@
 				INFOPLIST_FILE = "Manga Reader/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kodmys.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Manga Reader/Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -449,8 +382,10 @@
 				INFOPLIST_FILE = "Manga Reader/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kodmys.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Manga Reader/Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
@@ -468,6 +403,7 @@
 				);
 				INFOPLIST_FILE = "Manga ReaderTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kodmys.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Manga Reader.app/Manga Reader";
 			};
@@ -483,6 +419,7 @@
 				);
 				INFOPLIST_FILE = "Manga ReaderTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kodmys.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Manga Reader.app/Manga Reader";
 			};
