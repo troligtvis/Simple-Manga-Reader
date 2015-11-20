@@ -27,14 +27,14 @@ class ChapterViewController: UIViewController {
     }
     
     func fetchImages(urlStr: String, first: Bool){
-        var url = NSURL(string: urlStr)
+        let url = NSURL(string: urlStr)
         
         if url != nil {
             let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
                 var urlError = false
                 
                 if error == nil {
-                    var urlContent = NSString(data: data, encoding: NSUTF8StringEncoding) as NSString!
+                    let urlContent = NSString(data: data!, encoding: NSUTF8StringEncoding) as NSString!
                     var urlContentArray = urlContent.componentsSeparatedByString("<option value=\"")
                     
                     if urlContentArray.count > 0 {
@@ -42,8 +42,8 @@ class ChapterViewController: UIViewController {
                         if firstCut.count > 0 {
                             var im = firstCut[1].componentsSeparatedByString(".jpg\"")
                             var im2 = im[0].componentsSeparatedByString("src=\"")
-                            var firstImageUrl: String = "\(im2[1]).jpg"
-                            var strForSorting = firstImageUrl as NSString
+                            let firstImageUrl: String = "\(im2[1]).jpg"
+                            //let strForSorting = firstImageUrl as NSString
                             var im3 = im2[1].componentsSeparatedByString("/")
                             self.pages["\(im3[5])"] = firstImageUrl
                             self.pageIndex++
@@ -66,10 +66,10 @@ class ChapterViewController: UIViewController {
                 
                 dispatch_async(dispatch_get_main_queue()) {
                     if urlError == true {
-                        println("\(error.localizedDescription)")
+                        print("\(error!.localizedDescription)")
                     } else {
                         if self.pageIndex == self.totalPages {
-                            let sortedKeysAndValues = sorted(self.pages) { $0.0 < $1.0 }
+                            let sortedKeysAndValues = self.pages.sort { $0.0 < $1.0 }
                             for i in sortedKeysAndValues{
                                 self.pageImageUrls.append(i.1)
                             }
@@ -91,11 +91,10 @@ class ChapterViewController: UIViewController {
         self.pageViewcontroller = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
         self.pageViewcontroller.dataSource = self
         
-        var startVC = self.viewControllerAtIndex(0) as ContentViewController
+        let startVC = self.viewControllerAtIndex(0) as ContentViewController
+        let viewControllers = [startVC]
         
-        var viewControllers = NSArray(object: startVC)
-        
-        self.pageViewcontroller.setViewControllers(viewControllers as [AnyObject], direction: .Forward, animated: true, completion: nil)
+        self.pageViewcontroller.setViewControllers(viewControllers, direction: .Forward, animated: true, completion: nil)
         self.pageViewcontroller.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height - 40)
         
         self.addChildViewController(self.pageViewcontroller)
@@ -115,7 +114,7 @@ extension ChapterViewController: UIPageViewControllerDataSource {
             return ContentViewController()
         }
         
-        var vc: ContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ContentViewController") as! ContentViewController
+        let vc: ContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("ContentViewController") as! ContentViewController
         vc.imageFile = pageImageUrls[index]
         vc.pageIndex = index
         
@@ -125,7 +124,7 @@ extension ChapterViewController: UIPageViewControllerDataSource {
     // MARK: - Page View Controller Data Source
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         
-        var vc = viewController as! ContentViewController
+        let vc = viewController as! ContentViewController
         var index: Int = vc.pageIndex
         
         if index == 0 || index == NSNotFound{
@@ -137,7 +136,7 @@ extension ChapterViewController: UIPageViewControllerDataSource {
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        var vc = viewController as! ContentViewController
+        let vc = viewController as! ContentViewController
         var index: Int = vc.pageIndex
         
         if index == NSNotFound{

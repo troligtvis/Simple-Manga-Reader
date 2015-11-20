@@ -19,6 +19,7 @@ class ContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("Imagefile: \(imageFile)")
         self.theImageView.imageFromUrl(imageFile)
         self.pageNr.text = "\(pageIndex + 1)"
         self.view.setNeedsDisplay()
@@ -35,12 +36,12 @@ extension UIImageView {
         if let url = NSURL(string: urlString) {
             let request = NSURLRequest(URL: url)
             NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
-                (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
                 if error != nil{
-                    println("error")
+                    print("error")
                 }
 
-                self.image = UIImage(data: data)
+                self.image = UIImage(data: data!)
             }
         }
     }

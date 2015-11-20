@@ -17,11 +17,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        var pageController = UIPageControl.appearance()
+        let pageController = UIPageControl.appearance()
         pageController.pageIndicatorTintColor = UIColor.lightGrayColor()
         pageController.currentPageIndicatorTintColor = UIColor.whiteColor()
         pageController.backgroundColor = UIColor.blackColor()
         
+        /*
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let mainViewController = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! ViewController
+        let leftViewController = storyboard.instantiateViewControllerWithIdentifier("TheMenu") as! MenuTableViewController
+        let rightViewController = storyboard.instantiateViewControllerWithIdentifier("TheMenu") as! MenuTableViewController
+        
+        //let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
+        
+        let nvc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("TheNav") as! UINavigationController
+        
+        let slideMenuController = SlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController, rightMenuViewController: rightViewController)
+        
+        self.window?.rootViewController = slideMenuController
+        self.window?.makeKeyAndVisible()
+        */
+        
+        
+/*
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        var navigationController = storyboard.instantiateViewControllerWithIdentifier("TheNav") as! UINavigationController
+        var menuController = storyboard.instantiateViewControllerWithIdentifier("menu") as! Menu
+        
+        var navi = storyboard.instantiateViewControllerWithIdentifier("navmain") as! UINavigationController
+        var menu = storyboard.instantiateViewControllerWithIdentifier("menu") as! Menu
+        
+        
+        var containerView = REFrostedViewController(contentViewController: navi, menuViewController: menu)
+        //var containerView = REFrostedViewController(contentViewController: navigationController, menuViewController: menuController)
+        
+        containerView.direction = REFrostedViewControllerDirection.Left
+        
+        self.window?.rootViewController = containerView
+        */
         return true
     }
 

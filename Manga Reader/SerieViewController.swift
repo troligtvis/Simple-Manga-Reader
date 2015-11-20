@@ -28,6 +28,7 @@ class SerieViewController: UIViewController {
         case NarutoGaiden
         case AttackOnTitan
         case AssassinationClassroom
+        case OnePunchMan
         
         func name() -> String{
             switch self{
@@ -45,6 +46,8 @@ class SerieViewController: UIViewController {
                 return "Attack On Titan"
             case .AssassinationClassroom:
                 return "Assassination Classroom"
+            case .OnePunchMan:
+                return "One Punch Man"
             }
         }
         
@@ -64,6 +67,8 @@ class SerieViewController: UIViewController {
                 return "http://www.mangareader.net/shingeki-no-kyojin"
             case .AssassinationClassroom:
                 return "http://www.mangareader.net/assassination-classroom"
+            case .OnePunchMan:
+                return "http://www.mangareader.net/onepunch-man"
             }
         }
         
@@ -83,6 +88,8 @@ class SerieViewController: UIViewController {
                 return UIImage(named: "logo_attackontitan")!
             case .AssassinationClassroom:
                 return UIImage(named: "logo_assassination_classroom")!
+            case .OnePunchMan:
+                return UIImage(named: "logo_one_punch_man")!
             }
         }
     }
@@ -106,19 +113,19 @@ class SerieViewController: UIViewController {
     }
     
     func getChapters(){
-        var url = NSURL(string: serieIndex.pageUrl())
+        let url = NSURL(string: serieIndex.pageUrl())
         
         if url != nil {
             let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
-                println("Done")
+                print("Done")
                 var urlError = false
             
-                if error == nil {
-                    var urlContent = NSString(data: data, encoding: NSUTF8StringEncoding) as NSString!
+                if let data = data where error == nil {
+                    let urlContent = NSString(data: data, encoding: NSUTF8StringEncoding) as NSString!
                     var urlContentArray = urlContent.componentsSeparatedByString("<div class=\"chico_manga\"></div>")
                     
                     if urlContentArray.count > 0 {
-                        println("1: \(urlContentArray.count)")
+                        print("1: \(urlContentArray.count)")
                         
                         var index = 0
                         for var i = 7; i < urlContentArray.count; i++ {
@@ -127,9 +134,9 @@ class SerieViewController: UIViewController {
                             var s = w[1].componentsSeparatedByString("\">")
                             var chapterNrAndTitle = s[1].componentsSeparatedByString("</a> : ")
                             
-                            var chapterUrl = s[0] as! String
-                            let chapterNr = chapterNrAndTitle[0] as! String
-                            let title = chapterNrAndTitle[1] as! String
+                            let chapterUrl = s[0]
+                            let chapterNr = chapterNrAndTitle[0]
+                            let title = chapterNrAndTitle[1]
                             
                             self.chapters.append( ["\(index)", chapterUrl, chapterNr, title] )
                             index++
@@ -144,9 +151,9 @@ class SerieViewController: UIViewController {
                 dispatch_async(dispatch_get_main_queue()) {
                     
                     if urlError == true {
-                        println("\(error.localizedDescription)")
+                        print("\(error!.localizedDescription)")
                     } else {
-                        self.chapters = self.chapters.reverse()
+                        self.chapters = Array(self.chapters.reverse())
                         self.theTable.reloadData()
                     }
                 }
@@ -180,7 +187,7 @@ extension SerieViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
         
         cell.textLabel?.text = chapters[indexPath.row][2]
         cell.detailTextLabel?.text = chapters[indexPath.row][3]

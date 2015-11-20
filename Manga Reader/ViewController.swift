@@ -14,11 +14,12 @@ class ViewController: UIViewController {
     
     private var mangaList = [String]()
     var index = 0
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
+        
         theTable.delegate = self
         theTable.dataSource = self
         
@@ -28,7 +29,8 @@ class ViewController: UIViewController {
                      "Fairy Tail Zero",
                      "Naruto Gaiden",
                      "Attack On Titan",
-                     "Assassination Classroom"]
+                     "Assassination Classroom",
+                     "One Punch Man"]
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,6 +41,13 @@ class ViewController: UIViewController {
     @IBAction func unwindToStart(segue: UIStoryboardSegue) {
     }
 
+    
+
+    @IBAction func toggleMenu(sender: AnyObject) {
+
+        self.frostedViewController.presentMenuViewController()
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
@@ -64,7 +73,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
         
         cell.textLabel?.text =
             mangaList[indexPath.row]
