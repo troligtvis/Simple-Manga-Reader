@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2B0393EA1B4C4C7100C0DE05 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0393E91B4C4C7100C0DE05 /* Accelerate.framework */; };
-		2B0CC15E1B203BA000A267E8 /* ChapterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0CC15D1B203BA000A267E8 /* ChapterViewController.swift */; };
-		2B0CC1601B203BB400A267E8 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0CC15F1B203BB400A267E8 /* ContentViewController.swift */; };
 		2B1F017B1C1F263500524447 /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1F017A1C1F263500524447 /* SegueHandlerType.swift */; };
 		2B1F017D1C1F2B3600524447 /* Serie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1F017C1C1F2B3600524447 /* Serie.swift */; };
 		2B1F017F1C1F2B5E00524447 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1F017E1C1F2B5E00524447 /* UIImage.swift */; };
@@ -37,8 +35,6 @@
 
 /* Begin PBXFileReference section */
 		2B0393E91B4C4C7100C0DE05 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		2B0CC15D1B203BA000A267E8 /* ChapterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterViewController.swift; sourceTree = "<group>"; };
-		2B0CC15F1B203BB400A267E8 /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		2B1F017A1C1F263500524447 /* SegueHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 		2B1F017C1C1F2B3600524447 /* Serie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serie.swift; sourceTree = "<group>"; };
 		2B1F017E1C1F2B5E00524447 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -84,8 +80,6 @@
 				2BD5D0331B1F939B00D01E38 /* ViewController.swift */,
 				2BD5D0511B1F960D00D01E38 /* SerieViewController.swift */,
 				2B1F01851C1F348A00524447 /* PageViewController.swift */,
-				2B0CC15D1B203BA000A267E8 /* ChapterViewController.swift */,
-				2B0CC15F1B203BB400A267E8 /* ContentViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -285,11 +279,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B0CC1601B203BB400A267E8 /* ContentViewController.swift in Sources */,
 				2B1F01861C1F348A00524447 /* PageViewController.swift in Sources */,
 				2B1F01881C1F357C00524447 /* ImageCell.swift in Sources */,
 				2B1F018A1C1F36F500524447 /* ImageManager.swift in Sources */,
-				2B0CC15E1B203BA000A267E8 /* ChapterViewController.swift in Sources */,
 				2BD5D0341B1F939B00D01E38 /* ViewController.swift in Sources */,
 				2BD5D0321B1F939B00D01E38 /* AppDelegate.swift in Sources */,
 				2BD5D0521B1F960D00D01E38 /* SerieViewController.swift in Sources */,
