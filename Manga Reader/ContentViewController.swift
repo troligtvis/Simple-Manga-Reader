@@ -21,7 +21,7 @@ class ContentViewController: UIViewController {
 
         print("Imagefile: \(imageFile)")
         self.theImageView.imageFromUrl(imageFile)
-        self.pageNr.text = "\(pageIndex + 1)"
+        //self.pageNr.text = "\(pageIndex + 1)"
         self.view.setNeedsDisplay()
     }
 

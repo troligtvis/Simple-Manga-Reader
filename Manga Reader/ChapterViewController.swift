@@ -23,6 +23,9 @@ class ChapterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        //self.setupPageViewController()
+        
         fetchImages(urlToChapter, first: true)
     }
     
@@ -51,7 +54,7 @@ class ChapterViewController: UIViewController {
                         
                         if first{
                             self.totalPages = urlContentArray.count - 1
-                        
+                            
                             for var i = 2; i < urlContentArray.count; i++ {
                                 var firstCut = urlContentArray[i].componentsSeparatedByString("\">")
                                 self.fetchImages("http://www.mangareader.net\(firstCut[0])", first: false)
@@ -80,10 +83,7 @@ class ChapterViewController: UIViewController {
             })
             
             task.resume()
-        } else {
-            
         }
-
     }
     
     func setupPageViewController(){
@@ -95,11 +95,13 @@ class ChapterViewController: UIViewController {
         let viewControllers = [startVC]
         
         self.pageViewcontroller.setViewControllers(viewControllers, direction: .Forward, animated: true, completion: nil)
-        self.pageViewcontroller.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height - 40)
+        self.pageViewcontroller.view.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height + 40)
         
         self.addChildViewController(self.pageViewcontroller)
         self.view.addSubview(self.pageViewcontroller.view)
         self.pageViewcontroller.didMoveToParentViewController(self)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

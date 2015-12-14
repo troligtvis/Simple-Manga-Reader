@@ -14,85 +14,18 @@ class SerieViewController: UIViewController {
     @IBOutlet weak var theTable: UITableView!
     @IBOutlet weak var imgView: UIImageView!
     
+    enum SegueIdentifier: String {
+        case ShowChapterViewController = "SegueToChapter"
+    }
+    
     var chapters = [[String]]()
     var urlToChapter = ""
     
     var index: Int = 0
-    var serieIndex: Series!
+    private var serie: Serie!
     
-    enum Series: Int{
-        case Bleach = 0
-        case OnePiece
-        case FairyTail
-        case FairyTailZero
-        case NarutoGaiden
-        case AttackOnTitan
-        case AssassinationClassroom
-        case OnePunchMan
-        
-        func name() -> String{
-            switch self{
-            case .Bleach:
-                return "Bleach"
-            case .OnePiece:
-                return "One Piece"
-            case .FairyTail:
-                return "Fairy Tail"
-            case .FairyTailZero:
-                return "Fairy Tail Zero"
-            case .NarutoGaiden:
-                return "Naruto Gaiden"
-            case .AttackOnTitan:
-                return "Attack On Titan"
-            case .AssassinationClassroom:
-                return "Assassination Classroom"
-            case .OnePunchMan:
-                return "One Punch Man"
-            }
-        }
-        
-        func pageUrl() -> String{
-            switch self{
-            case .Bleach:
-                return "http://www.mangareader.net/94/bleach.html"
-            case .OnePiece:
-                return "http://www.mangareader.net/103/one-piece.html"
-            case .FairyTail:
-                return "http://www.mangareader.net/135/fairy-tail.html"
-            case .FairyTailZero:
-                return "http://www.mangareader.net/fairy-tail-zero"
-            case .NarutoGaiden:
-                return "http://www.mangareader.net/naruto-gaiden-the-seventh-hokage"
-            case .AttackOnTitan:
-                return "http://www.mangareader.net/shingeki-no-kyojin"
-            case .AssassinationClassroom:
-                return "http://www.mangareader.net/assassination-classroom"
-            case .OnePunchMan:
-                return "http://www.mangareader.net/onepunch-man"
-            }
-        }
-        
-        func logoImg() -> UIImage{
-            switch self{
-            case .Bleach:
-                return UIImage(named: "logo_bleach")!
-            case .OnePiece:
-                return UIImage(named: "logo_onepiece")!
-            case .FairyTail:
-                return UIImage(named: "logo_fairytail")!
-            case .FairyTailZero:
-                return UIImage(named: "logo_fairytail_zero")!
-            case .NarutoGaiden:
-                return UIImage(named: "logo_naruto")!
-            case .AttackOnTitan:
-                return UIImage(named: "logo_attackontitan")!
-            case .AssassinationClassroom:
-                return UIImage(named: "logo_assassination_classroom")!
-            case .OnePunchMan:
-                return UIImage(named: "logo_one_punch_man")!
-            }
-        }
-    }
+    
+    var pageImageUrls = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,86 +33,98 @@ class SerieViewController: UIViewController {
         theTable.delegate = self
         theTable.dataSource = self
         
-        serieIndex = Series(rawValue: index)
-        imgView.image = serieIndex.logoImg()
-        self.navigationItem.title = serieIndex.name()
+        serie = Serie(rawValue: index)
+        imgView.image = serie.logoImg()
+        self.navigationItem.title = serie.name()
         
         getChapters()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func getChapters(){
-        let url = NSURL(string: serieIndex.pageUrl())
-        
-        if url != nil {
-            let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
-                print("Done")
-                var urlError = false
-            
-                if let data = data where error == nil {
-                    let urlContent = NSString(data: data, encoding: NSUTF8StringEncoding) as NSString!
-                    var urlContentArray = urlContent.componentsSeparatedByString("<div class=\"chico_manga\"></div>")
-                    
-                    if urlContentArray.count > 0 {
-                        print("1: \(urlContentArray.count)")
-                        
-                        var index = 0
-                        for var i = 7; i < urlContentArray.count; i++ {
-                            var firstCut = urlContentArray[i].componentsSeparatedByString("</td>")
-                            var w = firstCut[0].componentsSeparatedByString("<a href=\"")
-                            var s = w[1].componentsSeparatedByString("\">")
-                            var chapterNrAndTitle = s[1].componentsSeparatedByString("</a> : ")
-                            
-                            let chapterUrl = s[0]
-                            let chapterNr = chapterNrAndTitle[0]
-                            let title = chapterNrAndTitle[1]
-                            
-                            self.chapters.append( ["\(index)", chapterUrl, chapterNr, title] )
-                            index++
-                        }
-                    } else {
-                        urlError = true
-                    }
-                } else {
-                    urlError = true
-                }
-                
-                dispatch_async(dispatch_get_main_queue()) {
-                    
-                    if urlError == true {
-                        print("\(error!.localizedDescription)")
-                    } else {
-                        self.chapters = Array(self.chapters.reverse())
-                        self.theTable.reloadData()
-                    }
-                }
-            })
-            
-            task.resume()
+        guard let url = NSURL(string: serie.pageUrl()) else {
+            print("error url is bad")
+            return
         }
+        
+        NSURLSession.sharedSession().dataTaskWithURL(url) {
+            (data, response, error) in
+            
+            guard let data = data where error == nil else {
+                print("error fetching chapters")
+                return
+            }
+            
+            guard let urlContent = NSString(data: data, encoding: NSUTF8StringEncoding) else {
+                print("error content is nil")
+                return
+            }
+            
+            let urlContentArray = urlContent.componentsSeparatedByString("<div class=\"chico_manga\"></div>")
+            
+            guard urlContentArray.count > 0 else {
+                return
+            }
+            
+            var index = 0
+            for i in 7..<urlContentArray.count {
+                var strip = urlContentArray[i].componentsSeparatedByString("</td>")
+                strip = strip[0].componentsSeparatedByString("<a href=\"")
+                strip = strip[1].componentsSeparatedByString("\">")
+                var chapterNrAndTitle = strip[1].componentsSeparatedByString("</a> : ")
+                
+                let chapterUrl = strip[0]
+                let chapterNr = chapterNrAndTitle[0]
+                let title = chapterNrAndTitle[1]
+                
+                self.chapters.append( ["\(index)", chapterUrl, chapterNr, title] )
+                index++
+            }
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                self.chapters = Array(self.chapters.reverse())
+                self.theTable.reloadData()
+            }
+        }.resume()
     }
     
-    @IBAction func unwindToSerie(segue: UIStoryboardSegue) {
+    @IBAction func didPressBackButton(sender: AnyObject) {
+        print("BACK")
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+}
+
+extension SerieViewController: SegueHandlerType {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        switch segueIdentifierForSegue(segue) {
+        case .ShowChapterViewController:
+            guard let vc = segue.destinationViewController as? PageViewController else {
+                fatalError("wrong view controller type")
+            }
+            
+            vc.pageImageUrls = pageImageUrls
+        }
     }
 }
 
 extension SerieViewController: UITableViewDelegate, UITableViewDataSource{
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "MoveToChapter"{
-            if let vc = segue.destinationViewController as? ChapterViewController{
-                vc.urlToChapter = urlToChapter
-            }
-        }
-    }
-    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         urlToChapter = "http://www.mangareader.net\(chapters[indexPath.row][1])"
-        performSegueWithIdentifier("MoveToChapter", sender: self)
+        
+        ImageManager.requestFetchImages(urlToChapter, first: true) {
+            urls in
+            
+            guard let urls = urls else {
+                print("Failed")
+                return
+            }
+            
+            self.pageImageUrls = urls
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                self.performSegueWithIdentifier(.ShowChapterViewController, sender: self)
+            })
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -194,4 +139,3 @@ extension SerieViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
 }
-

@@ -9,55 +9,54 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var theTable: UITableView!
     
-    private var mangaList = [String]()
+    private let mangaList: [String] = ["Bleach",
+                                       "One Piece",
+                                       "Fairy Tail",
+                                       "Fairy Tail Zero",
+                                       "Naruto Gaiden",
+                                       "Attack On Titan",
+                                       "Assassination Classroom",
+                                       "One Punch Man"]
+    
+    enum SegueIdentifier: String {
+        case ShowSeriesViewController = "SegueToSeries"
+    }
+    
     var index = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-
         
         theTable.delegate = self
         theTable.dataSource = self
-        
-        mangaList = ["Bleach",
-                     "One Piece",
-                     "Fairy Tail",
-                     "Fairy Tail Zero",
-                     "Naruto Gaiden",
-                     "Attack On Titan",
-                     "Assassination Classroom",
-                     "One Punch Man"]
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    @IBAction func unwindToStart(segue: UIStoryboardSegue) {
     }
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource{
-    
+extension ViewController: SegueHandlerType {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "SegueToSeries" {
-            if let nav = segue.destinationViewController as? UINavigationController{
-                if let vc = nav.topViewController as? SerieViewController{
-                    vc.index = index
-                }
-            }
+        
+        switch segueIdentifierForSegue(segue) {
+        case .ShowSeriesViewController:
+            guard let vc = segue.destinationViewController as? SerieViewController else {
+            fatalError("wrong view controller type")
+        }
+        
+        vc.index = index
         }
     }
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        index = indexPath.row
-        performSegueWithIdentifier("SegueToSeries", sender: self)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    
+        index = indexPath.row
+        performSegueWithIdentifier(.ShowSeriesViewController, sender: self)
+    
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,9 +65,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
-        
-        cell.textLabel?.text =
-            mangaList[indexPath.row]
+        cell.textLabel?.text = mangaList[indexPath.row]
         
         return cell
     }
